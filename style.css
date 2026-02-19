@@ -1,0 +1,215 @@
+/* ---------------- FONT ---------------- */
+* {
+  font-family: 'Quicksand', sans-serif;
+  box-sizing: border-box;
+}
+
+/* ---------------- BODY ---------------- */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #ffdada;
+  overflow-x: hidden;
+}
+
+/* soft pink glow background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 200, 215, 0.35),
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---------------- TITLE ---------------- */
+#title {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+
+  font-family: 'Baloo 2', cursive;
+  font-size: 96px;
+  font-weight: 800;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+
+  color: #fec4c4;
+
+  text-shadow:
+    0 6px 10px rgba(255,255,255,0.9),
+    0 0 18px rgba(255,182,193,0.8);
+
+  animation: floatTitle 5s ease-in-out infinite;
+  z-index: 10;
+}
+
+@keyframes floatTitle {
+  0%   { transform: translateX(-50%) translateY(0); }
+  50%  { transform: translateX(-50%) translateY(-6px); }
+  100% { transform: translateX(-50%) translateY(0); }
+}
+
+/* ---------------- CAT CURSOR ---------------- */
+#cat {
+  position: absolute;
+  width: 63px;
+  height: 63px;
+  font-size: 63px;
+  line-height: 63px;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.05s linear;
+}
+
+/* ---------------- CONTENT LAYOUT ---------------- */
+main.content {
+  position: relative;
+  margin-top: 220px;
+  padding: 60px 10%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 10;
+}
+
+/* ---------------- INFO BOXES ---------------- */
+.content section,
+.info-box,
+.summary-box {
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-bottom: 40px;
+
+  box-shadow: 0 10px 25px rgba(255,182,193,0.25);
+  position: relative;
+  z-index: 10;
+}
+
+/* ---------------- HEADINGS ---------------- */
+.content h2,
+.box-title {
+  font-size: 38px;
+  margin-bottom: 18px;
+  color: #ff7fa3;
+}
+
+.content h3 {
+  font-size: 26px;
+  color: #ff6f91;
+}
+
+/* ---------------- TEXT ---------------- */
+.content p,
+.content li {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.content ul {
+  padding-left: 22px;
+}
+
+/* ---------------- TABLE ---------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 14px 16px;
+}
+
+th {
+  background-color: #ffc0cb;
+}
+
+td {
+  background-color: rgba(255,255,255,0.7);
+}
+
+/* ---------------- GRAPH ---------------- */
+pre {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  overflow-x: auto;
+}
+
+/* ======================================================
+   🐱 FALLING CAT FACE EFFECT (REPLACES PAWS COMPLETELY)
+   ====================================================== */
+
+.cats {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1; /* behind everything */
+  overflow: hidden;
+}
+
+.cat-stream {
+  position: absolute;
+  top: -160px;
+  animation: catFall linear infinite;
+  opacity: 0.35;
+}
+
+.cat-stream::before {
+  content: "🐱 😺 🐱 😸 🐱";
+  font-size: 44px;
+  line-height: 1.9;
+
+  /* soft white border */
+  text-shadow:
+    -2px -2px 0 #ffffff,
+     2px -2px 0 #ffffff,
+    -2px  2px 0 #ffffff,
+     2px  2px 0 #ffffff;
+
+  filter: drop-shadow(0 0 6px #ffb6c1);
+}
+
+@keyframes catFall {
+  0% {
+    transform: translateY(-140px);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px) scale(1.3);
+    opacity: 0;
+  }
+}
+/* 🐾 PAWS */
+.paw {
+  position: fixed;
+  font-size: 34px;
+  pointer-events: none;
+  filter: hue-rotate(320deg) saturate(180%);
+  opacity: 0.95;
+  transition: top 2.3s ease-in, opacity 2.3s ease;
+}
+
