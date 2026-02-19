@@ -1,0 +1,2 @@
+# Cat_Webpage
+🐾 All About Cats  A fun and informative webpage designed to fill your leisure time with everything about cats. From fascinating facts to their history and charm, this project celebrates these wonderful creatures .This mini project was built while exploring the foundations of web development using HTML, CSS, and JavaScript.
